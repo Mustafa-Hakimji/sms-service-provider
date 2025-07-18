@@ -15,22 +15,21 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    const { fName, lName, phone, address } = req.body;
-    const isUserExist = await UserSchema.findOne({ phone: `+91${phone}` });
+    const { mobile } = req.body;
+    const isUserExist = await UserSchema.findOne({ mobile });
 
     if (isUserExist) {
-      res
-        .status(204)
-        .json({ message: "User already exists", user: `${fName} ${lName}` });
-
-      return;
+      await UserSchema.findOneAndUpdate({ mobile }, { ...req.body }),
+        { new: true };
+      return res
+        .status(200)
+        .json({ message: "User updated successfully", user: isUserExist });
     }
 
-    if (!fName || !lName || !phone || !address) {
-      return res.status(400).send("Missing required fields");
-    }
+    const user = await UserSchema.create({
+      ...req.body,
+    });
 
-    const user = await UserSchema.create({ ...req.body, phone: `+91${phone}` });
     if (!user) return res.status(400).send("Failed creating user");
 
     res.status(201).json({ message: "User created", user });

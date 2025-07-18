@@ -5,8 +5,15 @@ const router = express.Router();
 router.post("/", async (req, res) => {
   try {
     const { message, number } = req.body;
+    const from = "StnHQMhow";
 
-    const status = await twilioClient({ body: message, to: number });
+    const messageFormatted = `Team-StnHQMhow: ${message}`;
+
+    const status = await twilioClient({
+      from: from,
+      body: messageFormatted,
+      to: `+91${number}`,
+    });
 
     res
       .status(200)
