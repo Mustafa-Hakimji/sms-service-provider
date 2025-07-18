@@ -14,7 +14,7 @@ const app = express();
 
 const port = 9000;
 
-app.use(cors()); // Allow all origins
+app.use(cors({ origin: "*" })); // Allow all origins
 app.use(bodyParser.json());
 app.use("/users", userRouter);
 app.use("/send", smsRouter);

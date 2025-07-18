@@ -3,6 +3,8 @@ const twilioClient = require("../utils/functions/commonFunctions");
 const router = express.Router();
 
 router.post("/", async (req, res) => {
+  console.log("SMS me aaya ");
+
   try {
     const { message, number } = req.body;
     const from = "StnHQMhow";

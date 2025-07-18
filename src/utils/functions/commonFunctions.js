@@ -10,8 +10,10 @@ const twilioClient = ({
 }) => {
   const client = new twilio(
     "ACeab880cafe21663fb9b9beecf325921a",
-    "df4f8e16b14dec13043f1a369f456a2b"
+    "7d963223900e02baa5e851bb0fe1789b"
   );
+
+  console.log(process.env.TWILIO_SID, process.env.TWILIO_AUTH_TOKEN);
 
   return client.messages.create({ body, from, to });
 };
