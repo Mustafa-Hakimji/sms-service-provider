@@ -9,8 +9,8 @@ const twilioClient = ({
   to = "918602794816",
 }) => {
   const client = new twilio(
-    process.env.TWILIO_SID,
-    process.env.TWILIO_AUTH_TOKEN
+    "ACeab880cafe21663fb9b9beecf325921a",
+    "df4f8e16b14dec13043f1a369f456a2b"
   );
 
   return client.messages.create({ body, from, to });
