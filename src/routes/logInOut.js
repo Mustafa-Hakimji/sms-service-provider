@@ -12,12 +12,6 @@ router.post("/in", async (req, res) => {
     if (staff.password !== password) {
       return res.status(400).json({ message: "Invalid password" });
     }
-    const updatedStaff = await StaffSchema.updateOne(
-      { email },
-      { token: true }
-    );
-
-    console.log(res);
 
     res.status(200).json({ message: "Login successful", staff: staff });
   } catch (err) {

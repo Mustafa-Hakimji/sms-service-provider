@@ -13,8 +13,6 @@ const twilioClient = ({
     "7d963223900e02baa5e851bb0fe1789b"
   );
 
-  console.log(process.env.TWILIO_SID, process.env.TWILIO_AUTH_TOKEN);
-
   return client.messages.create({ body, from, to });
 };
 

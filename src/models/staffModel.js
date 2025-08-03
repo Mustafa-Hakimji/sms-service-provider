@@ -4,8 +4,8 @@ const Schema = mongoose.Schema({
   lName: String,
   email: String,
   phone: String,
-  address: String,
   password: String,
+  role: { type: String, default: "staff" },
   token: {
     type: Boolean,
     default: false,

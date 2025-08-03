@@ -7,6 +7,7 @@ const userRouter = require("./src/routes/userRoutes");
 const smsRouter = require("./src/routes/smsRoutes");
 const staffRouter = require("./src/routes/staffRoutes");
 const logInOut = require("./src/routes/logInOut");
+const message = require("./src/routes/message");
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.use("/users", userRouter);
 app.use("/send", smsRouter);
 app.use("/staffs", staffRouter);
 app.use("/log", logInOut);
+app.use("/message", message);
 
 const DB = process.env?.MONG_DB_URI?.replace(
   "<PASSWORD>",
