@@ -10,7 +10,7 @@ const twilioClient = ({
 }) => {
   const client = new twilio(
     "ACeab880cafe21663fb9b9beecf325921a",
-    "7d963223900e02baa5e851bb0fe1789b"
+    "5132057e3c34b6bba20d5a30716f2c8b"
   );
 
   return client.messages.create({ body, from, to });
